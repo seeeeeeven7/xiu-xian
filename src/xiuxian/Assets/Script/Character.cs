@@ -46,12 +46,12 @@ public class Character : MonoBehaviour {
           //          animator.SetBool("Walking", true);
                     if (horizontal > 0)
                     {
-                        rigidbody2D.velocity = new Vector2(+3F, rigidbody2D.velocity.y);
+                        rigidbody2D.velocity = new Vector2(+5F, rigidbody2D.velocity.y);
                         spriteRenderer.flipX = false;
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(-3F, rigidbody2D.velocity.y);
+                        rigidbody2D.velocity = new Vector2(-5F, rigidbody2D.velocity.y);
                         spriteRenderer.flipX = true;
                     }
                 }
