@@ -37,28 +37,39 @@ public class Character : MonoBehaviour {
         }
         else
         {
+            int maxMoveSpeed = 7;
         //    if (!animator.GetBool("Falling"))
             {
                 // 检查移动
                 int horizontal = (int)(Input.GetAxisRaw("Horizontal"));
+                int vertical = (int)(Input.GetAxisRaw("Vertical"));
+
+                float moveSpeed = maxMoveSpeed;
+                if (horizontal != 0 && vertical != 0)
+                {
+                    moveSpeed = moveSpeed / Mathf.Sqrt(2);
+                }
                 if (horizontal != 0)
                 {
-          //          animator.SetBool("Walking", true);
                     if (horizontal > 0)
                     {
-                        rigidbody2D.velocity = new Vector2(+5F, rigidbody2D.velocity.y);
-                        spriteRenderer.flipX = false;
+                        transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
                     }
                     else
                     {
-                        rigidbody2D.velocity = new Vector2(-5F, rigidbody2D.velocity.y);
-                        spriteRenderer.flipX = true;
+                        transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
                     }
                 }
-                else
+                if (vertical != 0)
                 {
-                    rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
-                    //animator.SetBool("Walking", false);
+                    if (vertical > 0)
+                    {
+                        transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
+                    }
+                    else
+                    {
+                        transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
+                    }
                 }
             }
 

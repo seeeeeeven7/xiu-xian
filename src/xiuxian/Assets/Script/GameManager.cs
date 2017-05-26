@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public List<Item> package;
     public GameObject player;
     private Transform gameHolder;
 
@@ -12,7 +13,7 @@ public class GameManager : MonoBehaviour {
     {
         gameHolder = new GameObject("GameHolder").transform;
 
-        GameObject instance = Instantiate(player, new Vector3(0, 20, 0), Quaternion.identity) as GameObject;
+        GameObject instance = Instantiate(player, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
 
         instance.transform.SetParent(gameHolder);
     }
