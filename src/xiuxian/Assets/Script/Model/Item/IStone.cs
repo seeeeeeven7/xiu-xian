@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-public class Item
+public class IStone : Item
 {
-
+    
 }
