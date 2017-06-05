@@ -10,18 +10,12 @@ public class MapManager : MonoBehaviour {
     void Start () {
         mapHolder = new GameObject("MapHolder").transform;
 
-        for (int i = -50, k = 0; i <= 50; i++)
-        {
-            for (int j = k; j >= -20; j--)
+        for (int x = -10; x <= 10; x++)
+            for (int y = -10; y <= 10; y++)
             {
-                Debug.Log(i + ' ' + j);
-                GameObject instance = Instantiate(dirt, new Vector3(i, j, 0), Quaternion.identity) as GameObject;
+                GameObject instance = Instantiate(dirt, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
                 instance.transform.SetParent(mapHolder);
             }
-            int r = Random.Range(0, 10);
-            if (r == 0) k++;
-            if (r == 1) k--;
-        }
     }
 	
 	// Update is called once per frame
